@@ -31,30 +31,23 @@ namespace RegonSearchApi.Api.Controllers
             return Ok(mapper.Map<IEnumerable<CompanyListViewModel>>(list));
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<CompanyTbl> Get(Guid id)
+        //// GET api/values/5
+        //[HttpGet("{id}")]
+        //public ActionResult<CompanyTbl> Get(Guid id)
+        //{
+        //    var value = companyService.GetCompanyById(id);
+        //    return Ok(mapper.Map<CompanyDetailViewModel>(value));
+        //}
+
+        [HttpGet("{value}")]
+        public ActionResult<CompanyTbl> Get(string value)
         {
-            var value = companyService.GetCompanyById(id);
-            return Ok(mapper.Map<CompanyDetailViewModel>(value));
+            var info = companyService.GetCompanyByInfo(value);
+            if (info == null)
+                return NotFound();
+
+            return Ok(mapper.Map<CompanyDetailViewModel>(info));
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

@@ -23,6 +23,11 @@ namespace RegonSearchApi.DAO.Service.Company
             return db.Companies.Include(a => a.CompanyDetail).Include(a => a.CompanyDetail.City).Include(a => a.CompanyDetail.City.Voivodeship).FirstOrDefault(s => s.CompanyID == Id);
         }
 
+        public CompanyTbl GetCompanyByInfo(string info)
+        {
+            return db.Companies.Include(a => a.CompanyDetail).Include(a => a.CompanyDetail.City).Include(a => a.CompanyDetail.City.Voivodeship).FirstOrDefault(a => a.NIP == info || a.KRS == info || a.REGON == info);
+        }
+
         public IEnumerable<CompanyTbl> ListAllCompany()
         {
             return db.Companies.ToList();

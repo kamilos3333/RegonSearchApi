@@ -9,5 +9,6 @@ namespace RegonSearchApi.DAO.Service.Company.Interface
     {
         IEnumerable<CompanyTbl> ListAllCompany();
         CompanyTbl GetCompanyById(Guid Id);
+        CompanyTbl GetCompanyByInfo(string info);
     }
 }
