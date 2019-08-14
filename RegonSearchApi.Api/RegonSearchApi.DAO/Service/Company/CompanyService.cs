@@ -20,7 +20,7 @@ namespace RegonSearchApi.DAO.Service.Company
 
         public CompanyTbl GetCompanyById(Guid Id)
         {
-            return db.Companies.Include(a => a.CompanyDetail).Include(a => a.CompanyDetail.City).FirstOrDefault(s => s.CompanyID == Id);
+            return db.Companies.Include(a => a.CompanyDetail).Include(a => a.CompanyDetail.City).Include(a => a.CompanyDetail.City.Voivodeship).FirstOrDefault(s => s.CompanyID == Id);
         }
 
         public IEnumerable<CompanyTbl> ListAllCompany()

@@ -15,7 +15,8 @@ namespace RegonSearchApi.Api.Mapper
             CreateMap<CompanyTbl, CompanyListViewModel>();
             CreateMap<CompanyTbl, CompanyDetailViewModel>()
                 .ForMember(dest => dest.Adress, opt => opt.MapFrom(src => src.CompanyDetail.Adress))
-                .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.CompanyDetail.City.CityName));
+                .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.CompanyDetail.City.CityName))
+                .ForMember(dest => dest.Voivodeship, opt => opt.MapFrom(src => src.CompanyDetail.City.Voivodeship.NameVoivodeship));
         }
     }
 }
