@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegonSearchApi.Api", "Regon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegonSearchApi.Data", "RegonSearchApi.Data\RegonSearchApi.Data.csproj", "{534993D8-15F0-4AF6-906F-7047880C96DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegonSearchApi.DAO", "RegonSearchApi.DAO\RegonSearchApi.DAO.csproj", "{7E3D2500-E1F1-40A2-B72B-80A3C957FA83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{534993D8-15F0-4AF6-906F-7047880C96DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{534993D8-15F0-4AF6-906F-7047880C96DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{534993D8-15F0-4AF6-906F-7047880C96DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3D2500-E1F1-40A2-B72B-80A3C957FA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3D2500-E1F1-40A2-B72B-80A3C957FA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3D2500-E1F1-40A2-B72B-80A3C957FA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3D2500-E1F1-40A2-B72B-80A3C957FA83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

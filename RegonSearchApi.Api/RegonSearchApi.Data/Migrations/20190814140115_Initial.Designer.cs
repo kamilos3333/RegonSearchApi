@@ -10,8 +10,8 @@ using RegonSearchApi.Data;
 namespace RegonSearchApi.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190814093212_Add-Data-To-CityTbl-And-VoivodeshipsTbl")]
-    partial class AddDataToCityTblAndVoivodeshipsTbl
+    [Migration("20190814140115_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,13 +148,9 @@ namespace RegonSearchApi.Data.Migrations
 
                     b.Property<Guid>("CityID");
 
-                    b.Property<Guid>("CompanyID");
-
                     b.HasKey("CompanyDetailID");
 
                     b.HasIndex("CityID");
-
-                    b.HasIndex("CompanyID");
 
                     b.ToTable("CompanyDetails");
                 });
@@ -163,6 +159,8 @@ namespace RegonSearchApi.Data.Migrations
                 {
                     b.Property<Guid>("CompanyID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("CompanyDetailID");
 
                     b.Property<string>("CompanyName");
 
@@ -173,6 +171,8 @@ namespace RegonSearchApi.Data.Migrations
                     b.Property<string>("REGON");
 
                     b.HasKey("CompanyID");
+
+                    b.HasIndex("CompanyDetailID");
 
                     b.ToTable("Companies");
                 });
@@ -285,10 +285,13 @@ namespace RegonSearchApi.Data.Migrations
                         .WithMany("CompanyDetailsList")
                         .HasForeignKey("CityID")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.HasOne("RegonSearchApi.Data.Model.CompanyTbl", "Company")
-                        .WithMany("CompanyDetail")
-                        .HasForeignKey("CompanyID")
+            modelBuilder.Entity("RegonSearchApi.Data.Model.CompanyTbl", b =>
+                {
+                    b.HasOne("RegonSearchApi.Data.Model.CompanyDetailTbl", "CompanyDetail")
+                        .WithMany("Company")
+                        .HasForeignKey("CompanyDetailID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

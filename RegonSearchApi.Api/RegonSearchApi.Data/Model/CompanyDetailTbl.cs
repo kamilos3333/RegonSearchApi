@@ -9,11 +9,10 @@ namespace RegonSearchApi.Data.Model
     {
         [Key]
         public Guid CompanyDetailID { get; set; }
-        public Guid CompanyID { get; set; }
         public Guid CityID { get; set; }
         public string Adress { get; set; }
 
-        public virtual CompanyTbl Company { get; set; }
+        public virtual ICollection<CompanyTbl> Company { get; set; }
         public virtual CityTbl City { get; set; }
     }
 }

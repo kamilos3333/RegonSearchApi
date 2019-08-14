@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RegonSearchApi.Api.Mapper;
+using RegonSearchApi.DAO.Service.Company;
+using RegonSearchApi.DAO.Service.Company.Interface;
 using RegonSearchApi.Data;
 
 namespace RegonSearchApi.Api
@@ -31,6 +35,14 @@ namespace RegonSearchApi.Api
             services.AddDbContext<ApplicationDbContext>
                (options => options.UseSqlServer(connection));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<ICompanyService, CompanyService>();
+
+            var mappingConfig = new MapperConfiguration(c =>
+            {
+                c.AddProfile(new MappingProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

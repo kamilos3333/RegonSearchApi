@@ -6,11 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RegonSearchApi.DAO\RegonSearchApi.DAO.csproj" />
     <ProjectReference Include="..\RegonSearchApi.Data\RegonSearchApi.Data.csproj" />
   </ItemGroup>
 
