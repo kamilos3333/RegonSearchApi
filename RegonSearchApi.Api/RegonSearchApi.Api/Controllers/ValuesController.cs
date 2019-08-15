@@ -42,6 +42,7 @@ namespace RegonSearchApi.Api.Controllers
         [HttpGet("{value}")]
         public ActionResult<CompanyTbl> Get(string value)
         {
+            value = RemoveCharacterString.RemoveLetterFromNipValue(value);
             var info = companyService.GetCompanyByInfo(value);
             if (info == null)
                 return NotFound();

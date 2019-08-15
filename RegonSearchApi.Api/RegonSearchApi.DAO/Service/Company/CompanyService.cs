@@ -18,10 +18,10 @@ namespace RegonSearchApi.DAO.Service.Company
             this.db = db;
         }
 
-        public CompanyTbl GetCompanyById(Guid Id)
-        {
-            return db.Companies.Include(a => a.CompanyDetail).Include(a => a.CompanyDetail.City).Include(a => a.CompanyDetail.City.Voivodeship).FirstOrDefault(s => s.CompanyID == Id);
-        }
+        //public CompanyTbl GetCompanyById(Guid Id)
+        //{
+        //    return db.Companies.Include(a => a.CompanyDetail).Include(a => a.CompanyDetail.City).Include(a => a.CompanyDetail.City.Voivodeship).FirstOrDefault(s => s.CompanyID == Id);
+        //}
 
         public CompanyTbl GetCompanyByInfo(string info)
         {
